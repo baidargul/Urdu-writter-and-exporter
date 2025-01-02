@@ -25,16 +25,16 @@ const createCanvas = (
   const boundingRect = text.getBoundingRect();
 
   // Set the canvas size to fit the text's bounding box
-  canvas.setWidth(boundingRect.width);
-  canvas.setHeight(boundingRect.height);
+  canvas.setWidth(boundingRect.width * 2);
+  canvas.setHeight(boundingRect.height * 2);
 
   // Set background color to white
   canvas.backgroundColor = "white";
   canvas.renderAll(); // Re-render the canvas to apply the background color
 
   // Center the text inside the canvas
-  const left = (boundingRect.width - text.width) / 2;
-  const top = (boundingRect.height - text.height) / 2;
+  const left = boundingRect.width / 2; //- text.width) / 2;
+  const top = boundingRect.height / 2; //- text.height) / 2;
 
   text.set({
     left: left, // Center horizontally
@@ -43,7 +43,6 @@ const createCanvas = (
 
   // Re-render the canvas with the updated text position
   canvas.renderAll();
-
   return canvas;
 };
 
